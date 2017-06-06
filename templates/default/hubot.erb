@@ -1,0 +1,14 @@
+#!/bin/sh
+
+export ROCKETCHAT_ROOM='<%= @room %>'
+export ROCKETCHAT_USER=<%= @user %>
+export ROCKETCHAT_PASSWORD=<%= @password %>
+export ROCKETCHAT_URL=localhost:3000
+export LISTEN_ON_ALL_PUBLIC=true
+
+set -e
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+
+exec node_modules/.bin/hubot --name "botmain" "$@"
